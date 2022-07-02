@@ -1,0 +1,503 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="utf-8" />
+        <title>Responsive Personal Website</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="description"/>
+        <meta content="" name="keywords"/>
+        <meta content="" name="author"/>
+
+        <!-- CSS Files
+    ================================================== -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/owl.transitions.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.countdown.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+        <!-- color scheme -->
+        <link rel="stylesheet" type="text/css" id="colors" href="{% static 'css/colors/scheme-02.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/coloring.css' %}"/>
+    </head>
+
+    <body class="side-layout">
+        <div id="wrapper">
+            <div class="page-overlay">
+                <div class="preloader-wrap">
+                    <div class="spinner">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- header for mobile begin -->
+            <header class="header-light header-for-mobile transparent scroll-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-between">
+                                <div class="align-self-center header-col-left">
+                                    <!-- logo begin -->
+                                    <div id="logo">
+                                        <a href="{% url 'Portfolio:home' %}">{{ home.logo }}</a>
+                                    </div>
+                                    <!-- logo close -->
+                                </div>
+                                <div class="align-self-center ml-auto header-col-mid">
+                                    <!-- mainmenu begin -->
+                                    <ul id="mainmenu" class="scrollnav">
+                                        <li><a href="#section-hero" class="active">Home</a></li>
+                                        <li></li>
+                                        <li><a href="#section-about">About</a></li>
+                                        <li></li>
+                                        <li><a href="#section-services">Services</a></li>
+                                        <li></li>
+                                        <li><a href="#section-portfolio">Portfolio</a></li>
+                                        <li></li>
+                                        <li><a href="#section-blog">Blog</a></li>
+                                        <li></li>
+                                        <li><a href="#section-contact">Contact</a></li>
+                                        <li></li>
+                                    </ul>
+
+                                    <!-- mainmenu close -->
+                                </div>
+                                <div class="align-self-center ml-auto header-col-right">
+                                    <div class="social-icons">
+                                        {% for item in social_profile %}
+                                        <a href="{{item.link}}"><i class="fa fa-{{item.name}} fa-lg"></i></a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <span id="menu-btn"></span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- header for mobile close -->
+
+            <!-- header for desktop begin -->
+            <div id="sidebar-content" class="sc-dark text-center">
+                <div class="sc-inner">
+                    <!-- logo begin -->
+                    <div id="sc-logo">
+                        <a href="{% url 'Portfolio:home' %}">
+                            <img src="{{ home.sidebarimage.url }}" class="img-fluid" alt="">
+                            <h1>José Smith</h1>
+                        </a>
+                    </div>
+                    <!-- logo close -->
+
+                    <!-- mainmenu begin -->
+                    <ul id="menuside" class="scrollnav">
+                        <li><a href="#section-hero" class="active">Home</a></li>
+                        <li></li>
+                        <li><a href="#section-about">About</a></li>
+                        <li></li>
+                        <li><a href="#section-services">Services</a></li>
+                        <li></li>
+                        <li><a href="#section-portfolio">Portfolio</a></li>
+                        <li></li>
+                        <li><a href="#section-blog">Blog</a></li>
+                        <li></li>
+                        <li><a href="#section-contact">Contact</a></li>
+                        <li></li>
+                    </ul>
+                    <!-- mainmenu close -->
+
+                    <div class="social-icons">
+                        {% for item in social_profile %}
+                        <a href="{{item.link}}"><i class="fa fa-{{item.name}} fa-lg"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="sc-bg"></div>
+            </div>
+            <!-- header for desktop close -->
+
+            <div id="main-content">
+            <!-- content begin -->
+            
+            <!-- content begin -->
+            <div class="no-bottom no-top text-light" id="content" data-bgcolor="#202020">
+                <div id="top"></div>
+
+                <section id="section-hero" class="vertical-center text-light" data-bgimage="url({{home.image.url}}) top" data-stellar-background-ratio=".5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 offset-md-2 text-center">
+                                <h4 class="id-color">Welcome</h4>
+                                <div class="spacer-10"></div>
+
+                                <div class="h1_big text-white">
+                                    I Am
+                                    <div class="typed-strings">
+                                        <p>{{home.title1}}</p>
+                                        <p>{{home.title2}}</p>
+                                        <p>{{home.title3}}</p>
+                                        <p>{{home.name}}</p>
+                                    </div>
+                                    <div class="typed"></div>
+                                </div>
+                            </div>
+
+                            <div class="spacer-30"></div>
+
+                            <div class="col-md-6 offset-md-3 text-center">
+                                <p class="lead wow fadeInUp" data-wow-delay=".75s">{{home.description}}</p>
+                                <div class="spacer-20"></div>
+                                <a class="btn-custom scroll-to wow fadeInUp" data-wow-delay="1s" href="#section-about">About Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section-about" data-bgcolor="#202020">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-sm-30 text-center">
+                                <div class="de-images">
+                                    <img class="di-small-2 wow fadeInLeft" src="{{about.image.url}}" alt="" />
+                                    <img class="img-fluid wow fadeInRight" src="{{about.image2.url}}" alt="" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 offset-md-1 wow fadeInLeft" data-wow-delay=".5s">
+                                <h2>About Me</h2>
+                                <p>
+                                    {{about.description}}
+                                </p>
+                                <div class="spacer-10"></div>
+                                <span id="btn-show-skills" class="btn-border wow fadeInUp" data-wow-delay="1s">Show My Skills</span>
+                            </div>
+                        </div>
+
+                        <div id="skills" class="row">
+                            <div class="spacer-double"></div>
+                            <div class="spacer-double"></div>
+                            {% for item in skill %}
+                            <div class="col-md-4">
+                                <div class="skill-bar style-2">
+                                    <h5>{{item.name}}</h5>
+                                    <div class="de-progress">
+                                        <div class="value"></div>
+                                        <div class="progress-bar" data-value="{{item.percent}}%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section-services" data-bgcolor="#252525">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="text-center">
+                                    <h2>Our Services</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <div class="spacer-30"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            {% for item in services %}
+                            <div class="col-lg-4 col-md-6 mb30 wow fadeInRight" data-wow-delay="0s">
+                                <div class="f-box f-icon-left f-icon-circle f-border">
+                                    <i class="fa fa-{{item.name}} id-color"></i>
+                                    <div class="fb-text">
+                                        <h4>{{item.title}}</h4>
+                                        <p>{{item.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section-cta" class="text-light" data-bgimage="url(images/background/3.jpg) top" data-stellar-background-ratio=".5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2 text-center">
+                                <h2>I Am Available For Freelancer</h2>
+                                <div class="spacer-10"></div>
+                                <a href="#" class="btn-custom">Hire Me Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- section begin -->
+                <section id="section-testimonial" data-bgcolor="#252525">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="text-center">
+                                    <h2>Testimonials</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <div class="spacer-30"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <div id="testimonial-carousel-single" class="owl-carousel owl-theme wow fadeInUp">
+                                    {% for item in testimonials %}
+                                    <blockquote class="testimonial-big text-light">
+                                        <img src="{{item.image.url}}" alt="" />
+                                        {{item.description}}
+                                        <span class="name">{{item.name}}</span>
+                                    </blockquote>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section close -->
+
+                <!-- section begin -->
+                <section id="section-portfolio" data-bgcolor="#202020">
+                    <div class="container">
+                        <!-- portfolio filter begin -->
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h5><span class="id-color">Portfolio</span></h5>
+                                <h2>I Love What I Do</h2>
+                            </div>
+
+                            <div class="spacer-single"></div>
+
+                            <div class="col-md-12 text-center">
+                                <ul id="filters">
+                                    <li><a href="#" data-filter="*" class="selected">all projects</a></li>
+                                    {% for item in categories %}
+                                    <li><a href="#" data-filter=".{{item.name}}">{{item.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_3_cols grid sequence">
+                                    <!-- gallery item -->
+                                    {% for item in portfolios %}
+                                    <div class="item gallery-item pf-click {{item.category}}" data-value="{% url 'Portfolio:detail' item.id %}">
+                                        <div class="picframe wow">
+                                            <span class="overlay">
+                                                <span class="pf_text">
+                                                    <span class="project-name">{{item.name}}</span>
+                                                </span>
+                                            </span>
+                                            <img src="{{item.image.url}}" alt="" />
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- close gallery item -->
+                                </div>
+                            </div>
+                            <!-- portfolio filter close -->
+                        </div>
+                    </div>
+                </section>
+                <!-- section close -->
+
+                <div id="loader-area" class="la-dark" data-bgcolor="#202020">
+                    <div class="container">
+                        <div class="project-load"></div>
+                    </div>
+                </div>
+
+                <section id="section-blog" data-bgcolor="#252525">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="text-center">
+                                    <h2>Our Blog</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <div class="spacer-30"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for item in article %}
+                            <div class="col-lg-4 col-md-6 mb30">
+                                <div class="bloglist item">
+                                    <div class="post-content">
+                                        <div class="post-image">
+                                            <img alt="" src="{{item.image.url}}" />
+                                            <div class="post-info">
+                                                <div class="inner"><span class="post-date">{{item.publish}}</span> <span class="post-author">{{item.author}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="post-text">
+                                            <h4><a href="#">{{item.title}}</a></h4>
+                                            <p>{{item.description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- section begin -->
+                <section id="section-contact" data-bgcolor="#202020">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="text-center">
+                                    <h2>Contact Us</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <div class="spacer-30"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form name="contactForm" id="contact_form" class="row form-default form-dark" method="post" action="">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <div class="field-set">
+                                    {{ form.name }}
+                                    <div class="line-fx"></div>
+                                </div>
+
+                                <div class="field-set">
+                                    {{ form.subject }}
+                                    <div class="line-fx"></div>
+                                </div>
+
+                                <div class="field-set">
+                                    {{ form.email }}
+                                    <div class="line-fx"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="field-set">
+                                    {{ form.message }}
+                                    <div class="line-fx"></div>
+                                </div>
+                            </div>
+
+                            <div class="spacer-single"></div>
+
+                            <div class="col-md-12 text-center">
+                                <div id="submit">
+                                    <input type="submit" id="send_message" value="Submit Form" class="btn btn-custom color-2" />
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="spacer-double"></div>
+
+                        <div class="row text-center wow fadeInUp">
+                            <div class="col-md-4">
+                                <div class="wm-1"></div>
+                                <i class="icon_mobile id-color size40 mb20"></i>
+                                <h6 class="id-color">Call Us</h6>
+                                <p>{{contact.phone}}</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="wm-1"></div>
+                                <i class="icon_house_alt id-color size40 mb20"></i>
+                                <h6 class="id-color">Visit Office</h6>
+                                <p>{{contact.address}}</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="wm-1"></div>
+                                <i class="icon_mail_alt id-color size40 mb20"></i>
+                                <h6 class="id-color">Email Us</h6>
+                                <p>{{contact.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- content close -->
+
+            <!-- footer begin -->
+            <footer class="dark">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 sm-text-center mb-sm-30">
+                            &copy; Copyright 2022
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer close -->
+            </div>
+
+            <a href="#" id="back-to-top"></a>
+
+            <div id="preloader">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Javascript Files
+    ================================================== -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+        <script src="{% static 'js/easing.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.js' %}"></script>
+        {% comment %} <script src="{% static 'js/validation.js' %}"></script> {% endcomment %}
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/enquire.min.js' %}"></script>
+        <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+        <script src="{% static 'js/jquery.plugin.js' %}"></script>
+        <script src="{% static 'js/typed.js' %}"></script>
+        <script src="{% static 'js/typed-custom.js' %}"></script>
+        <script src="{% static 'js/jquery.countTo.js' %}"></script>
+        <script src="{% static 'js/jquery.countdown.js' %}"></script>
+        <script src="{% static 'js/designesia.js' %}"></script>
+
+        <script>
+            const form = document.getElementById("contact_form");
+            form.addEventListener("submit", submitHandler);
+
+            function submitHandler(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'Portfolio:home' %}",
+                    data: $("#contact_form").serialize(),
+                    dataType: "json",
+                    success: function sucessHandler(data)
+                    {
+                        if (data.msg === "Success") 
+                        {
+                            alert("Your Massage Sent");
+                            document.getElementById("contact_form").reset();
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

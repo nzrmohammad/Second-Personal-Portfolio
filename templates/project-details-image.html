@@ -1,0 +1,42 @@
+<div class="project-view">
+    <div id="btn-close">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+    </div>
+
+    <div class="row">
+        {% for item in portfolios %}
+        <div class="col-md-8 row">
+			<div class="col-md-12 mb30">
+				<img src="{{item.image.url}}" alt="" class="img-fluid" />
+			</div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="project-info">
+                <h2>{{item.name}}</h2>
+				
+				<h4>Brief</h4>
+                <p>{{item.description}}</p>
+				
+				<div class="spacer-10"></div>
+					
+				<h4>Results</h4>
+                <p>{{item.result}}</p>
+				
+				<div class="spacer-10"></div>
+				
+                <span class="title">Date</span>
+                <span class="val">{{item.publish}}</span>
+
+                <span class="title">Client</span>
+                <span class="val">{{item.client}}</span>
+
+                <span class="title">URL</span>
+                <span class="val"><a href="{{item.url}}">{{item.url}}</a></span>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
